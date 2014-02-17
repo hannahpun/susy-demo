@@ -1,0 +1,110 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "base";
+@import "compass";
+@import "compass/reset";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+/* -------------------------------------------------------------------------*/
+/* Layout */
+
+.wrapper{
+  @include container;
+  // @include susy-grid-background;
+}
+
+
+body{
+	font-family:"Roboto", "Helvetica Neue", "Helvetica",sans-serif;
+	font-weight:200
+}
+div{
+	min-height:100px;
+	line-height: 100px;
+	text-align: center;
+  	color: #fff;
+  	font-size: 30px;
+  	margin-bottom: 10px;
+}
+.row{
+	@include container;
+	div:last-child{
+		@include omega; 
+	}
+	.small1{@include span-columns(7,7);margin-bottom: 0;font-size: 20px;}
+	.box1,.box2,.box3{
+		@include span-columns(10,10);
+		
+	}
+}
+.side-l{background-color: #2f808c;}
+.main{background-color: #4b637f;}
+.side-r{background-color: #6c2c5d;}
+.box1{background-color: #ea6060;}
+.box2{background-color: #78d6fa;}
+.box3{background-color: #24364c;}
+.small1{background-color: #ea6060;}
+.photo{background-color: #142840;}
+
+.photo{
+	@include isolate-grid(6);font-size: 20px;
+}
+
+//mobile
+
+
+
+//pad
+@include at-breakpoint(768px 12) {
+	.photo{@include isolate-grid(3);}
+  	
+  	.side-l{
+		@include span-columns(3,12);
+	}
+	.main{
+		@include span-columns(5,12);
+	}
+	.side-r{
+		@include span-columns(4 omega,12);
+	}
+
+}
+
+
+//desktop
+@include at-breakpoint(960px 12) {
+
+	.photo{@include isolate-grid(2);}
+	
+	.side-l{
+		@include span-columns(2,12);
+		height: 460px;
+	}
+	.main{
+		@include span-columns(9,12);
+		
+		.box1{
+			@include span-columns(2,10);
+		}
+		.box2{
+			@include span-columns(4,10);
+		}
+		.box3{
+			@include span-columns(6,10);
+		}
+		.small1{
+			@include span-columns(1,7);
+		}
+	}
+	.side-r{
+		@include span-columns(1 omega,12);
+		height: 460px;
+	}
+}
+
+
+
+
+
+
+
